@@ -143,9 +143,9 @@ public class Emitter {
         return callbacks != null && !callbacks.isEmpty();
     }
 
-    public static interface Listener {
+    public interface Listener {
 
-        public void call(Object... args);
+        void call(Object... args);
     }
 
     private class OnceListener implements Listener {

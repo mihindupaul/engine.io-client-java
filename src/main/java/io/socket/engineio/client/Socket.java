@@ -118,7 +118,7 @@ public class Socket extends Emitter {
     private long pingTimeout;
     private String id;
     /*package*/ String hostname;
-    private String path;
+    public String path;
     private String timestampParam;
     private List<String> transports;
     private List<String> upgrades;
@@ -418,7 +418,7 @@ public class Socket extends Emitter {
                 if (err instanceof Exception) {
                     error = new EngineIOException(PROBE_ERROR, (Exception)err);
                 } else if (err instanceof String) {
-                    error = new EngineIOException("probe error: " + (String)err);
+                    error = new EngineIOException("probe error: " + err);
                 } else {
                     error = new EngineIOException(PROBE_ERROR);
                 }

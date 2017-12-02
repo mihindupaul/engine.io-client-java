@@ -185,9 +185,7 @@ public class PollingXHR extends Polling {
             requestCall = callFactory.newCall(request);
             requestCall.enqueue(new Callback() {
                 @Override
-                public void onFailure(Call call, IOException e) {
-                    self.onError(e);
-                }
+                public void onFailure(Call call, IOException e) {self.onError(e);}
 
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
@@ -197,7 +195,7 @@ public class PollingXHR extends Polling {
                     if (response.isSuccessful()) {
                         self.onLoad();
                     } else {
-                        self.onError(new IOException(Integer.toString(response.code())));
+                        self.onError(new IOException(response.body().string()));
                     }
                 }
             });

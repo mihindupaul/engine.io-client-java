@@ -274,15 +274,15 @@ public class Parser {
         return bytes;
     }
 
-    public static interface EncodeCallback<T> {
+    public interface EncodeCallback<T> {
 
-        public void call(T data);
+        void call(T data);
     }
 
 
-    public static interface DecodePayloadCallback<T> {
+    public interface DecodePayloadCallback<T> {
 
-        public boolean call(Packet<T> packet, int index, int total);
+        boolean call(Packet<T> packet, int index, int total);
     }
 }
 
